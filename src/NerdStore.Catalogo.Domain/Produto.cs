@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NerdStore.Catalogo.Domain
 {
-    class Produto : Entity, IAgregateRoot
+    public class Produto : Entity, IAgregateRoot
     {
         public Guid IdCategoria { get; private set; }
         public DateTime DataCadastro { get; }
@@ -18,8 +18,9 @@ namespace NerdStore.Catalogo.Domain
         public int QtdEstoque { get; private set; }
 
         public Categoria Categoria { get; private set; }
+        public Dimensoes Dimensoes { get; set; }
 
-        public Produto(string nome, string descricao, bool ativo, decimal valor, Guid idCategoria, DateTime dataCadastro, string imagem)
+        public Produto(string nome, string descricao, bool ativo, decimal valor, Guid idCategoria, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
             Nome = nome ?? throw new ArgumentNullException(nameof(nome));
             Descricao = descricao ?? throw new ArgumentNullException(nameof(descricao));
@@ -28,7 +29,7 @@ namespace NerdStore.Catalogo.Domain
             IdCategoria = idCategoria;
             DataCadastro = dataCadastro;
             Imagem = imagem;
-
+            Dimensoes = dimensoes;
             Validar();
         }
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NerdStore.Catalogo.Domain
 {
-    class Categoria : Entity
+    public class Categoria : Entity
     {
         public string Nome { get; private set; }
         public int Codigo { get; private set; }
