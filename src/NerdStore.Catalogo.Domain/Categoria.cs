@@ -10,6 +10,10 @@ namespace NerdStore.Catalogo.Domain
         public string Nome { get; private set; }
         public int Codigo { get; private set; }
 
+        public IEnumerable<Produto> Produtos { get; set; }
+
+        protected Categoria() { }
+
         public Categoria(string nome, int codigo)
         {
             Nome = nome ?? throw new ArgumentNullException(nameof(nome));
